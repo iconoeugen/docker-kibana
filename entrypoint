@@ -1,8 +1,5 @@
 #!/bin/bash -e
 
-: ${ELASTICSEARCH_HOST:?Not defined}
-: ${ELASTICSEARCH_PORT:=9200}
-
 # Add kibana as command if needed
 if [[ "${1:0:1}" == '-' ]]; then
     set -- kibana "$@"
@@ -30,6 +27,17 @@ export NSS_WRAPPER_PASSWD=/tmp/passwd
 export NSS_WRAPPER_GROUP=/etc/group
 export LD_PRELOAD=/usr/lib64/libnss_wrapper.so
 
-sed -ri "s!^(\#\s*)?(elasticsearch\.url:).*!\2 'http://${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}'!" /opt/kibana/config/kibana.yml
+# execute all init scripts
+files=$(shopt -s nullglob dotglob; echo "${INIT_DIR}"/*)
+for f in ${files} ; do
+  echo "Initialize environment from $f"
+  set -o allexport
+  source "${f}"
+  set +o allexport
+done
 
+substenv ${CONF_DIR}/kibana.yml.in ${CONF_DIR}/kibana.yml
+
+# then assume that user wants to run his own process,
+# for example a `bash` shell to explore this image
 exec "$@"
