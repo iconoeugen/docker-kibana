@@ -98,26 +98,3 @@ logging.verbose: ${LOGGING_VERBOSE}
 # Set the interval in milliseconds to sample system and process performance
 # metrics. Minimum is 100ms. Defaults to 5000.
 ops.interval: ${OPS_INTERVAL}
-
-#
-# ---------------------------------- X-Pack -----------------------------------
-#
-# Set to false to disable X-Pack security. Configure in both elasticsearch.yml and kibana.yml.
-#
-xpack.security.enabled: ${XPACK_SECURITY_ENABLED}
-#
-# Set to false to disable X-Pack monitoring. Configure in both elasticsearch.yml and kibana.yml.
-#
-xpack.monitoring.enabled: ${XPACK_MONITORING_ENABLED}
-#
-# Set to false to disable X-Pack graph. Configure in both elasticsearch.yml and kibana.yml.
-#
-xpack.graph.enabled: ${XPACK_GRAPH_ENABLED}
-#
-# Set to false to disable Watcher. Configure in elasticsearch.yml only.
-#
-xpack.watcher.enabled: ${XPACK_WATCHER_ENABLED}
-#
-# Set to false to disable X-Pack reporting. Configure in kibana.yml only.
-#
-xpack.reporting.enabled: ${XPACK_REPORTING_ENABLED}
