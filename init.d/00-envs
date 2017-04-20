@@ -103,16 +103,16 @@
 
 # ---------------------------------- X-Pack -----------------------------------
 # Set to false to disable X-Pack security. Configure in both elasticsearch.yml and kibana.yml.
-: ${XPACK_SECURITY_ENABLED:=true}
+: ${XPACK_SECURITY_ENABLED:=false}
 
 # Set to false to disable X-Pack monitoring. Configure in both elasticsearch.yml and kibana.yml.
-: ${XPACK_MONITORING_ENABLED:=true}
+: ${XPACK_MONITORING_ENABLED:=false}
 
 # Set to false to disable X-Pack graph. Configure in both elasticsearch.yml and kibana.yml.
-: ${XPACK_GRAPH_ENABLED:=true}
+: ${XPACK_GRAPH_ENABLED:=false}
 
 # Set to false to disable Watcher. Configure in elasticsearch.yml only.
-: ${XPACK_WATCHER_ENABLED:=true}
+: ${XPACK_WATCHER_ENABLED:=false}
 
 # Set to false to disable X-Pack reporting. Configure in kibana.yml only.
-: ${XPACK_REPORTING_ENABLED:=true}
+: ${XPACK_REPORTING_ENABLED:=false}
