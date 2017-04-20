@@ -19,7 +19,9 @@ ENV KIBANA_VERSION 5.3.0-1
 
 COPY kibana.repo /etc/yum.repos.d/kibana.repo
 RUN yum -y install kibana-${KIBANA_VERSION}.x86_64 && \
-    yum clean all
+    yum clean all && \
+    kibana-plugin install x-pack
+    
 COPY passwd.in ${HOME}/
 COPY entrypoint /
 
